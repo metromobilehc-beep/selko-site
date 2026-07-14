@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F2F0E9;
+  color: #1F2A24;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #C08A2E;
+  outline-offset: 2px;
+}
+
+/* Signature element: rotating verification stamp.
+   Circular seal used to mark a status (Verified / Current / On File)
+   throughout the site — a nod to the actual license/credential
+   verification the product performs. */
+.stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+}
+
+.stamp-ring {
+  position: absolute;
+  inset: 0;
+  animation: stamp-spin 26s linear infinite;
+}
+
+@keyframes stamp-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
