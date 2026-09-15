@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const links = [
   { href: '/demo', label: 'Demo' },
@@ -8,8 +9,15 @@ export default function Nav() {
   return (
     <header className="border-b border-line">
       <div className="max-w-content mx-auto px-6 flex items-center justify-between h-20">
-        <Link href="/" className="font-display italic text-2xl tracking-tight">
-          Selko
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo-nav.png"
+            alt="Selko"
+            width={557}
+            height={185}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
         <nav className="flex items-center gap-8">
           {links.map((l) => (

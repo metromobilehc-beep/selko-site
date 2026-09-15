@@ -1,12 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="border-t border-line mt-32">
       <div className="max-w-content mx-auto px-6 py-14 grid gap-10 md:grid-cols-3">
         <div>
-          <p className="font-display italic text-xl">Selko</p>
-          <p className="mt-3 text-sm text-ink-soft max-w-xs">
+          <Image
+            src="/logo-primary.png"
+            alt="Selko — Smart software. Healthier outcomes."
+            width={818}
+            height={264}
+            className="h-12 w-auto mb-3"
+          />
+          <p className="text-sm text-ink-soft max-w-xs">
             Built inside a working home health agency, not a boardroom.
             Selko Cred started it — more modules on the way as the need
             shows up.
