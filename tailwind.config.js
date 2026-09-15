@@ -7,17 +7,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: '#F2F0E9',
-        'paper-alt': '#E7E2D2',
-        ink: '#1F2A24',
-        'ink-soft': '#4A554E',
-        gold: '#C08A2E',
-        teal: '#3A6B5C',
-        rust: '#A64B3A',
-        line: '#D8D4C7',
+        // Registry palette — a credential file's own materials: manila,
+        // ledger ink, verification-stamp green, flagged-item amber.
+        // Deliberately cooler/deeper than a generic warm-cream site, and
+        // the accents are functional status colors (verified / flagged)
+        // rather than decorative ones.
+        paper: '#EDE9DE',
+        'paper-alt': '#E2DCC8',
+        ink: '#1B2A22',
+        'ink-soft': '#52594E',
+        gold: '#B5722B',
+        teal: '#2F6F4E',
+        rust: '#8B3A2B',
+        line: '#C9C2AE',
       },
       fontFamily: {
-        display: ['var(--font-fraunces)', 'serif'],
+        display: ['var(--font-plex-serif)', 'serif'],
         body: ['var(--font-plex-sans)', 'sans-serif'],
         mono: ['var(--font-plex-mono)', 'monospace'],
       },
