@@ -1,6 +1,6 @@
 export default function sitemap() {
   const base = 'https://selko360.com';
-  const routes = ['', '/demo'];
+  const routes = ['', '/healthcare', '/other-industries', '/demo'];
 
   return routes.map((route) => ({
     url: `${base}${route}`,
