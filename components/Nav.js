@@ -3,6 +3,7 @@ import Link from 'next/link';
 const links = [
   { href: '/cred', label: 'Cred' },
   { href: '/comply', label: 'Comply' },
+  { href: '/demo', label: 'Demo' },
 ];
 
 export default function Nav() {
