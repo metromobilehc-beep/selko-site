@@ -8,14 +8,14 @@ export default function Footer() {
           <p className="font-display italic text-xl">Selko</p>
           <p className="mt-3 text-sm text-ink-soft max-w-xs">
             Built inside a working home health agency, not a boardroom.
-            Cred, Comply, HEP, Billing and Voice run on one record per company.
+            Selko Cred started it — more modules on the way as the need
+            shows up.
           </p>
         </div>
         <div className="font-mono text-xs uppercase tracking-widest">
           <p className="text-ink-soft mb-3">Product</p>
           <ul className="space-y-2">
-            <li><Link href="/cred" className="hover:text-gold">Cred</Link></li>
-            <li><Link href="/comply" className="hover:text-gold">Comply</Link></li>
+            <li><Link href="/demo" className="hover:text-gold">Cred</Link></li>
           </ul>
         </div>
         <div className="font-mono text-xs uppercase tracking-widest">
