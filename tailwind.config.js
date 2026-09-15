@@ -7,19 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Registry palette — a credential file's own materials: manila,
-        // ledger ink, verification-stamp green, flagged-item amber.
-        // Deliberately cooler/deeper than a generic warm-cream site, and
-        // the accents are functional status colors (verified / flagged)
-        // rather than decorative ones.
-        paper: '#EDE9DE',
-        'paper-alt': '#E2DCC8',
-        ink: '#1B2A22',
-        'ink-soft': '#52594E',
-        gold: '#B5722B',
-        teal: '#2F6F4E',
-        rust: '#8B3A2B',
-        line: '#C9C2AE',
+        // Matches Selko Cred's own design tokens exactly (styles.css:
+        // --navy, --teal, --gold, --offwhite, --gray-*) so the marketing
+        // site and the actual product read as the same brand, not two
+        // different designs bolted together.
+        paper: '#F8FAFC',        // --offwhite (page canvas)
+        'paper-alt': '#E2E8F0',  // --gray-200 (subtle secondary surface)
+        ink: '#0F1F2E',          // --navy (dark panel background)
+        'ink-soft': '#475569',   // --gray-600 (secondary text on light bg)
+        gold: '#F59E0B',         // --gold
+        teal: '#0D9488',         // --teal
+        'teal-l': '#14B8A6',     // --teal-l (panel micro-labels, hovers)
+        rust: '#EF4444',         // --danger
+        line: '#E2E8F0',         // --gray-200
       },
       fontFamily: {
         display: ['var(--font-plex-serif)', 'serif'],
