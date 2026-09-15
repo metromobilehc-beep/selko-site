@@ -1,9 +1,9 @@
-import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { IBM_Plex_Serif, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
-const fraunces = Fraunces({
+const plexSerif = IBM_Plex_Serif({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-plex-serif',
   style: ['normal', 'italic'],
   weight: ['400', '500', '600'],
   display: 'swap',
@@ -75,7 +75,7 @@ const orgSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${plexSerif.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body className="font-body antialiased">
         <script
           type="application/ld+json"

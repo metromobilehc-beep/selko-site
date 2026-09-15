@@ -3,12 +3,19 @@ import Footer from '@/components/Footer';
 import Stamp from '@/components/Stamp';
 import Link from 'next/link';
 
-const modules = [
-  { name: 'Cred', desc: 'License and credential tracking, verification, expiry alerts.', status: 'Live', href: '/cred' },
-  { name: 'Comply', desc: 'Compliance training modules, seat limits, self-service onboarding.', status: 'Live', href: '/comply' },
-  { name: 'HEP', desc: 'Home exercise program builder with a shared exercise library.', status: 'Live', href: null },
-  { name: 'Billing', desc: 'Multi-agency visit import, invoicing, payroll, mileage, A/R.', status: 'Live', href: null },
-  { name: 'Voice', desc: 'Offline-first communication board for non-verbal patients.', status: 'In development', href: null },
+const roster = [
+  {
+    name: 'Cred',
+    desc: 'License and credential tracking, document verification, OIG exclusion monitoring, and payer credentialing forms.',
+    status: 'Live',
+    href: '/demo',
+  },
+  {
+    name: 'Voice',
+    desc: 'Offline-first communication board for non-verbal patients.',
+    status: 'In development',
+    href: null,
+  },
 ];
 
 export default function Home() {
@@ -17,103 +24,108 @@ export default function Home() {
       <Nav />
       <main>
         {/* Hero */}
-        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-12 items-center">
+        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-16 items-center">
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-teal mb-6">
-              Home health software, built by an operator
-            </p>
-            <h1 className="font-display text-5xl md:text-6xl leading-[1.05] text-balance">
-              Software your <em className="italic">clinicians</em> and your
-              <em className="italic"> surveyor</em> can both live with.
+            <h1 className="font-display text-5xl md:text-6xl leading-[1.08] text-balance max-w-2xl">
+              Software your clinicians and your surveyor can both live with.
             </h1>
-            <p className="mt-6 text-lg text-ink-soft max-w-xl">
-              Selko started as internal tools for a Tulsa home health agency —
-              a way to stop chasing expired licenses in spreadsheets and
-              re-explaining compliance rules over email. It's now a platform
-              other agencies run on too, with one record per company and
-              nothing shared between them.
+            <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
+              Selko started as internal tools for a mobile outpatient therapy
+              staffing company in Tulsa — built to clear the compliance and
+              credentialing bar our partner agencies actually set, not just
+              keep our own records tidy. It's now a platform other agencies
+              run on too, with one record per company and nothing shared
+              between them.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9">
               <Link
-                href="/cred"
-                className="font-mono text-xs uppercase tracking-widest bg-ink text-paper rounded-full px-6 py-3 hover:bg-teal transition-colors"
+                href="/demo"
+                className="font-mono text-xs uppercase tracking-widest bg-ink text-paper rounded-full px-6 py-3 hover:bg-teal transition-colors inline-block"
               >
                 See Cred
-              </Link>
-              <Link
-                href="/comply"
-                className="font-mono text-xs uppercase tracking-widest border border-ink rounded-full px-6 py-3 hover:bg-ink hover:text-paper transition-colors"
-              >
-                See Comply
               </Link>
             </div>
           </div>
           <div className="hidden md:flex justify-center">
-            <Stamp label="Selko" size={168} color="#1F2A24" />
+            <Stamp label="Selko" size={172} />
           </div>
         </section>
 
-        {/* Origin story */}
+        {/* Origin — ledger-style: compact facts beside the narrative,
+            rather than a centered pull-quote */}
         <section className="bg-paper-alt border-y border-line">
-          <div className="max-w-content mx-auto px-6 py-20 grid md:grid-cols-2 gap-12">
+          <div className="max-w-content mx-auto px-6 py-20 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
+            <dl className="space-y-6 font-mono text-sm h-fit md:sticky md:top-10">
+              <div>
+                <dt className="text-ink-soft">Built at</dt>
+                <dd className="mt-1">Metro Mobile Health Care</dd>
+              </div>
+              <div>
+                <dt className="text-ink-soft">Where</dt>
+                <dd className="mt-1">Tulsa, Oklahoma</dd>
+              </div>
+              <div>
+                <dt className="text-ink-soft">What Metro does</dt>
+                <dd className="mt-1">Mobile outpatient PT/OT staffing</dd>
+              </div>
+            </dl>
             <div>
-              <p className="font-mono text-xs uppercase tracking-widest text-gold mb-4">
-                Why it exists
-              </p>
-              <h2 className="font-display text-3xl leading-tight text-balance">
+              <h2 className="font-display text-3xl leading-tight text-balance mb-6">
                 We built the tool we couldn't find, then kept building it
                 for the agencies asking about it.
               </h2>
-            </div>
-            <div className="text-ink-soft space-y-4">
-              <p>
-                Metro Mobile Health Care is a working home health therapy
-                staffing company in Tulsa, Oklahoma. Every module in Selko
-                — credential tracking, compliance training, home exercise
-                programs, billing — was built to solve a real operational
-                problem at Metro first, under real state survey pressure.
-              </p>
-              <p>
-                Other agencies started asking to use the same tools. Selko is
-                that platform: multi-tenant, isolated by company, and shaped
-                by day-to-day home health operations rather than generic
-                practice-management software repurposed for the field.
-              </p>
+              <div className="text-ink-soft space-y-4 max-w-2xl leading-relaxed">
+                <p>
+                  Metro places physical and occupational therapists with
+                  partner agencies across Oklahoma, and every partner has its
+                  own compliance and credentialing bar to clear before a
+                  clinician can start seeing patients. Selko Cred was built
+                  to clear that bar — without a spreadsheet quietly going
+                  stale the moment someone's license renews.
+                </p>
+                <p>
+                  Other agencies started asking to use the same tool. Selko
+                  is that platform now: multi-tenant, isolated by company,
+                  and shaped by the actual paperwork of running a therapy
+                  staffing business, rather than generic practice-management
+                  software repurposed for the field.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Module roster */}
+        {/* Roster — a ledger, not a card grid */}
         <section className="max-w-content mx-auto px-6 py-24">
-          <p className="font-mono text-xs uppercase tracking-widest text-teal mb-4">
-            The roster
-          </p>
-          <h2 className="font-display text-3xl mb-10 text-balance">
-            One company record. Five modules, built as they were needed.
+          <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
+            One record. Built as the compliance requirements demanded it.
           </h2>
           <ul className="border-t border-line">
-            {modules.map((m) => {
+            {roster.map((m) => {
               const Wrapper = m.href ? Link : 'div';
               const wrapperProps = m.href ? { href: m.href } : {};
               return (
                 <li key={m.name} className="border-b border-line">
                   <Wrapper
                     {...wrapperProps}
-                    className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 py-6 ${
+                    className={`flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-8 py-7 ${
                       m.href ? 'group hover:bg-paper-alt transition-colors -mx-6 px-6' : ''
                     }`}
                   >
-                    <span className="font-display italic text-2xl w-28 shrink-0">
+                    <span className="font-display text-2xl w-28 shrink-0">
                       {m.name}
                     </span>
-                    <span className="text-ink-soft flex-1">{m.desc}</span>
+                    <span className="text-ink-soft flex-1 leading-relaxed">{m.desc}</span>
                     <span
-                      className={`font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full border shrink-0 w-fit ${
-                        m.status === 'Live'
-                          ? 'border-teal text-teal'
-                          : 'border-gold text-gold'
+                      className={`font-mono text-xs shrink-0 w-fit flex items-center gap-2 ${
+                        m.status === 'Live' ? 'text-teal' : 'text-gold'
                       }`}
                     >
+                      <span
+                        className={`inline-block w-1.5 h-1.5 rounded-full ${
+                          m.status === 'Live' ? 'bg-teal' : 'bg-gold'
+                        }`}
+                      />
                       {m.status}
                     </span>
                   </Wrapper>
@@ -125,27 +137,27 @@ export default function Home() {
 
         {/* CTA band */}
         <section className="bg-ink text-paper">
-          <div className="max-w-content mx-auto px-6 py-20 text-center">
-            <h2 className="font-display text-3xl md:text-4xl italic text-balance">
-              Start with the module that's costing you the most time.
-            </h2>
-            <p className="mt-4 text-paper/70 max-w-lg mx-auto">
-              Most agencies start with Cred or Comply. Both plug into the
-              rest of Selko as you grow into it.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/cred"
-                className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-paper transition-colors"
-              >
-                Explore Cred
-              </Link>
-              <Link
-                href="/comply"
-                className="font-mono text-xs uppercase tracking-widest border border-paper rounded-full px-6 py-3 hover:bg-paper hover:text-ink transition-colors"
-              >
-                Explore Comply
-              </Link>
+          <div className="max-w-content mx-auto px-6 py-20 grid md:grid-cols-[1fr_auto] gap-12 items-center">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg">
+                Meet every partner's compliance bar without rebuilding the
+                paperwork each time.
+              </h2>
+              <p className="mt-4 text-paper/70 max-w-md">
+                See what Selko Cred actually does, then book 20 minutes to
+                walk through it against your own staff list.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/demo"
+                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-paper transition-colors inline-block"
+                >
+                  Explore Cred
+                </Link>
+              </div>
+            </div>
+            <div className="hidden md:flex justify-center">
+              <Stamp label="Verified" size={128} color="#EDE9DE" />
             </div>
           </div>
         </section>
