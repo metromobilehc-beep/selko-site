@@ -51,30 +51,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Origin — ledger-style: compact facts beside the narrative,
-            rather than a centered pull-quote */}
-        <section className="bg-paper-alt border-y border-line">
-          <div className="max-w-content mx-auto px-6 py-20 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
-            <dl className="space-y-6 font-mono text-sm h-fit md:sticky md:top-10">
+        {/* Origin — presented as one of the app's own dark panels: rounded
+            navy card, white text, small uppercase teal micro-label header —
+            the exact convention Selko Cred itself uses for every section. */}
+        <section className="max-w-content mx-auto px-6">
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
+            <dl className="space-y-6 font-mono text-sm text-white/70 h-fit md:sticky md:top-10">
+              <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-2">Why it exists</p>
               <div>
-                <dt className="text-ink-soft">Built at</dt>
-                <dd className="mt-1">Metro Mobile Health Care</dd>
+                <dt>Built at</dt>
+                <dd className="mt-1 text-white">Metro Mobile Health Care</dd>
               </div>
               <div>
-                <dt className="text-ink-soft">Where</dt>
-                <dd className="mt-1">Tulsa, Oklahoma</dd>
+                <dt>Where</dt>
+                <dd className="mt-1 text-white">Tulsa, Oklahoma</dd>
               </div>
               <div>
-                <dt className="text-ink-soft">What Metro does</dt>
-                <dd className="mt-1">Mobile outpatient PT/OT staffing</dd>
+                <dt>What Metro does</dt>
+                <dd className="mt-1 text-white">Mobile outpatient PT/OT staffing</dd>
               </div>
             </dl>
             <div>
-              <h2 className="font-display text-3xl leading-tight text-balance mb-6">
+              <h2 className="font-display text-3xl leading-tight text-balance mb-6 text-white">
                 We built the tool we couldn't find, then kept building it
                 for the agencies asking about it.
               </h2>
-              <div className="text-ink-soft space-y-4 max-w-2xl leading-relaxed">
+              <div className="text-white/70 space-y-4 max-w-2xl leading-relaxed">
                 <p>
                   Metro places physical and occupational therapists with
                   partner agencies across Oklahoma, and every partner has its
@@ -95,7 +97,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Roster — a ledger, not a card grid */}
+        {/* Roster — a ledger, not a card grid, on the plain page canvas */}
         <section className="max-w-content mx-auto px-6 py-24">
           <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
             One record. Built as the compliance requirements demanded it.
@@ -135,29 +137,32 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* CTA band */}
-        <section className="bg-ink text-paper">
-          <div className="max-w-content mx-auto px-6 py-20 grid md:grid-cols-[1fr_auto] gap-12 items-center">
+        {/* CTA — same dark-panel treatment as the origin section, kept as
+            a contained card rather than a full-bleed band, matching how
+            the app itself always presents dark content: bounded, rounded,
+            never the whole viewport. */}
+        <section className="max-w-content mx-auto px-6 pb-24">
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[1fr_auto] gap-12 items-center">
             <div>
-              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg">
+              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
                 Meet every partner's compliance bar without rebuilding the
                 paperwork each time.
               </h2>
-              <p className="mt-4 text-paper/70 max-w-md">
+              <p className="mt-4 text-white/70 max-w-md">
                 See what Selko Cred actually does, then book 20 minutes to
                 walk through it against your own staff list.
               </p>
               <div className="mt-8">
                 <Link
                   href="/demo"
-                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-paper transition-colors inline-block"
+                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
                 >
                   Explore Cred
                 </Link>
               </div>
             </div>
             <div className="hidden md:flex justify-center">
-              <Stamp label="Verified" size={128} color="#EDE9DE" />
+              <Stamp label="Verified" size={128} color="#F8FAFC" />
             </div>
           </div>
         </section>
