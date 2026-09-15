@@ -4,7 +4,7 @@ export default function Stamp({
   label = 'VERIFIED',
   ring = 'ON FILE   CURRENT   VERIFIED   ',
   size = 128,
-  color = '#1F2A24',
+  color = '#2F6F4E',
   className = '',
 }) {
   const id = `stamp-path-${label.replace(/\s+/g, '-').toLowerCase()}`;
@@ -30,9 +30,15 @@ export default function Stamp({
           </text>
         </svg>
       </div>
+      {/* Inner ring — fixed, doesn't rotate with the status text — gives
+          the seal a real double-ring stamp structure rather than a
+          single circle. */}
+      <svg viewBox="0 0 200 200" width={size * 0.62} height={size * 0.62} style={{ position: 'absolute' }}>
+        <circle cx="100" cy="100" r="72" fill="none" stroke={color} strokeWidth="1.5" opacity="0.5" />
+      </svg>
       <span
-        className="font-display italic text-center leading-none"
-        style={{ fontSize: size * 0.13 }}
+        className="font-mono font-semibold uppercase text-center leading-none"
+        style={{ fontSize: size * 0.115, letterSpacing: '0.04em' }}
       >
         {label}
       </span>
