@@ -28,22 +28,22 @@ const SITE_URL = 'https://selko360.com';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Selko — Credentialing & Compliance Software for Home Health',
+    default: 'Selko Cred — Credential Tracking for Home Health',
     template: '%s | Selko',
   },
   description:
-    'Selko is home health credentialing and compliance software built inside a working therapy agency. Cred tracks licenses and expirations. Comply runs your compliance module library. One record per company.',
+    'Selko Cred is home health credential tracking and verification software, built inside a working therapy agency. License tracking, document verification, OIG exclusion monitoring, and payer credentialing — one record per company.',
   keywords: [
     'home health credentialing software',
-    'home health compliance software',
     'PT license tracking software',
     'OT credentialing software',
     'home health staff document management',
+    'OIG exclusion monitoring software',
   ],
   openGraph: {
-    title: 'Selko — Credentialing & Compliance Software for Home Health',
+    title: 'Selko Cred — Credential Tracking for Home Health',
     description:
-      'Built inside a working home health agency. Cred tracks licenses. Comply runs compliance. One record per company.',
+      'Built inside a working home health agency. License tracking, document verification, OIG exclusion monitoring, and payer credentialing.',
     url: SITE_URL,
     siteName: 'Selko',
     locale: 'en_US',
@@ -51,9 +51,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Selko — Credentialing & Compliance Software for Home Health',
+    title: 'Selko Cred — Credential Tracking for Home Health',
     description:
-      'Built inside a working home health agency. Cred tracks licenses. Comply runs compliance.',
+      'Built inside a working home health agency. License tracking, document verification, OIG exclusion monitoring, and payer credentialing.',
   },
   alternates: {
     canonical: SITE_URL,
@@ -66,7 +66,7 @@ const orgSchema = {
   name: 'Selko',
   url: SITE_URL,
   description:
-    'Selko builds credentialing and compliance software for home health agencies.',
+    'Selko Cred builds credential tracking and verification software for home health agencies.',
   brand: {
     '@type': 'Brand',
     name: 'Selko',
