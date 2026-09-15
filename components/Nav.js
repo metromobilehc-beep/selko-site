@@ -30,7 +30,7 @@ export default function Nav() {
             </Link>
           ))}
           <a
-            href="https://app.selko360.com"
+            href="https://cred.selko360.com"
             className="font-mono text-xs uppercase tracking-widest border border-ink rounded-full px-4 py-2 hover:bg-ink hover:text-paper transition-colors"
           >
             Sign in
