@@ -4,7 +4,7 @@ export default function Stamp({
   label = 'VERIFIED',
   ring = 'ON FILE   CURRENT   VERIFIED   ',
   size = 128,
-  color = '#2F6F4E',
+  color = '#0D9488',
   className = '',
 }) {
   const id = `stamp-path-${label.replace(/\s+/g, '-').toLowerCase()}`;
