@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Stamp from '@/components/Stamp';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
@@ -80,6 +81,24 @@ export default function HealthcarePage() {
           </div>
         </section>
 
+        {/* Real product screenshot — a fictional demo company, not a
+            mockup, so what you see here is exactly what's in the app. */}
+        <section className="max-w-content mx-auto px-6 py-16">
+          <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
+            <Image
+              src="/screenshots/documents.jpg"
+              alt="Selko Cred's document tracking table, showing license status, verification, and expiration dates for a staff roster"
+              width={1568}
+              height={781}
+              className="w-full h-auto block"
+            />
+          </div>
+          <p className="mt-3 text-sm text-ink-soft">
+            Every license and document, one table — current, expiring, or
+            expired, with who verified it and when.
+          </p>
+        </section>
+
         {/* Roster */}
         <section className="max-w-content mx-auto px-6 py-24">
           <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
@@ -104,6 +123,81 @@ export default function HealthcarePage() {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Plans — real feature/tier data pulled directly from the app's
+            own billing settings, not marketing copy invented for this
+            page. Two independent add-ons (document tracking and
+            credentialing) that combine with a bundle discount. */}
+        <section className="max-w-content mx-auto px-6 pb-24">
+          <h2 className="font-display text-3xl mb-3 text-balance max-w-xl">
+            Two add-ons, priced separately, discounted together.
+          </h2>
+          <p className="text-ink-soft mb-10 max-w-2xl leading-relaxed">
+            Document tracking and credentialing are billed independently, so
+            you only pay for what you actually need — plus a 10% discount,
+            forever, if you use both.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            <div>
+              <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Document tracking</h3>
+              <p className="font-display text-2xl mb-4">Standard $45/mo &nbsp;·&nbsp; Pro $79/mo</p>
+              <table className="w-full text-sm border-t border-line">
+                <tbody>
+                  {[
+                    ['Upload, verify, track staff documents', true, true],
+                    ['Overview stats, Expiration Tracker', true, true],
+                    ['Create custom document types', false, true],
+                    ['Duplicate a shared default type to customize it', false, true],
+                    ['Access to Pro-only document types', false, true],
+                    ['Detailed Missing Docs report (filterable, per-staff)', false, true],
+                    ['Bulk download all staff files', false, true],
+                    ['Export compliance report (Excel / PDF)', false, true],
+                    ['Custom branding (logo, colors)', false, true],
+                  ].map(([feature, std, pro]) => (
+                    <tr key={feature} className="border-b border-line">
+                      <td className="py-3 pr-4 text-ink-soft">{feature}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{std ? <span className="text-teal">✓</span> : '—'}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{pro ? <span className="text-teal">✓</span> : '—'}</td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td></td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Std</td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Pro</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Credentialing</h3>
+              <p className="font-display text-2xl mb-4">Basic $59/mo &nbsp;·&nbsp; Full $129/mo</p>
+              <table className="w-full text-sm border-t border-line">
+                <tbody>
+                  {[
+                    ['Org profile, staff records, CAQH/DEA, Notes, Locations, Accreditations, Employment History', true, true],
+                    ['Credentialing Files — admin upload and viewing', true, true],
+                    ['One-click payer form generation (upload a blank PDF once, fill for any provider)', false, true],
+                    ['Import a blank form directly from a URL', false, true],
+                    ['Clinician self-service file upload (their own "My Credentials" page)', false, true],
+                  ].map(([feature, basic, full]) => (
+                    <tr key={feature} className="border-b border-line">
+                      <td className="py-3 pr-4 text-ink-soft">{feature}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{basic ? <span className="text-teal">✓</span> : '—'}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{full ? <span className="text-teal">✓</span> : '—'}</td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td></td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Basic</td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Full</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
         {/* CTA */}
