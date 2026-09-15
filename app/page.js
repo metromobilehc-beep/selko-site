@@ -81,16 +81,29 @@ export default function Home() {
                   Metro places physical and occupational therapists with
                   partner agencies across Oklahoma, and every partner has its
                   own compliance and credentialing bar to clear before a
-                  clinician can start seeing patients. Selko Cred was built
-                  to clear that bar — without a spreadsheet quietly going
-                  stale the moment someone's license renews.
+                  clinician can start seeing patients. Clearing it by
+                  spreadsheet meant re-checking license renewals by hand, one
+                  clinician at a time, and hoping nothing quietly went stale
+                  in between.
                 </p>
                 <p>
-                  Other agencies started asking to use the same tool. Selko
-                  is that platform now: multi-tenant, isolated by company,
-                  and shaped by the actual paperwork of running a therapy
+                  Selko Cred started as the fix for that at Metro, first —
+                  nothing about it was built to be sold, just to stop that
+                  paperwork from slipping.
+                </p>
+                <p>
+                  Other agencies started asking to use it. Selko is that
+                  platform now: multi-tenant, isolated by company, and
+                  shaped by the actual paperwork of running a therapy
                   staffing business, rather than generic practice-management
                   software repurposed for the field.
+                </p>
+                <p>
+                  What it turned out to track — who's credentialed,
+                  verified, and current — was never really specific to
+                  healthcare. Built for that first, the same engine adapts
+                  to any regulated industry that lives or dies by keeping
+                  paperwork current.
                 </p>
               </div>
             </div>
