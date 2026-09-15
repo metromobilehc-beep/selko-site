@@ -3,18 +3,16 @@ import Footer from '@/components/Footer';
 import Stamp from '@/components/Stamp';
 import Link from 'next/link';
 
-const roster = [
+const paths = [
   {
-    name: 'Cred',
-    desc: 'License and credential tracking, document verification, OIG exclusion monitoring, and payer credentialing forms.',
-    status: 'Live',
-    href: '/demo',
+    name: 'Healthcare & Therapy Staffing',
+    desc: 'Selko Cred, built for home health and outpatient therapy — license tracking, OIG exclusion monitoring, and payer credentialing forms.',
+    href: '/healthcare',
   },
   {
-    name: 'Voice',
-    desc: 'Offline-first communication board for non-verbal patients.',
-    status: 'In development',
-    href: null,
+    name: 'Other Regulated Industries',
+    desc: 'The same tracking and verification engine, for any business that lives or dies by keeping licenses, certifications, and filings current.',
+    href: '/other-industries',
   },
 ];
 
@@ -27,33 +25,24 @@ export default function Home() {
         <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-16 items-center">
           <div>
             <h1 className="font-display text-5xl md:text-6xl leading-[1.08] text-balance max-w-2xl">
-              Software your clinicians and your surveyor can both live with.
+              Software your team and your regulators can both live with.
             </h1>
             <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-              Selko started as internal tools for a mobile outpatient therapy
-              staffing company in Tulsa — built to clear the compliance and
-              credentialing bar our partner agencies actually set, not just
-              keep our own records tidy. It's now a platform other agencies
-              run on too, with one record per company and nothing shared
-              between them.
+              Selko started inside a real healthcare staffing company
+              solving its own compliance problem. It's now a platform for
+              any regulated business that lives or dies by keeping
+              paperwork current, with one record per company and nothing
+              shared between them.
             </p>
-            <div className="mt-9">
-              <Link
-                href="/demo"
-                className="font-mono text-xs uppercase tracking-widest bg-ink text-paper rounded-full px-6 py-3 hover:bg-teal transition-colors inline-block"
-              >
-                See Cred
-              </Link>
-            </div>
           </div>
           <div className="hidden md:flex justify-center">
             <Stamp label="Selko" size={172} />
           </div>
         </section>
 
-        {/* Origin — presented as one of the app's own dark panels: rounded
-            navy card, white text, small uppercase teal micro-label header —
-            the exact convention Selko Cred itself uses for every section. */}
+        {/* Origin — the full story lives here once; the vertical pages
+            link back to it rather than repeating it. Same dark-panel
+            convention as the app itself uses for every section. */}
         <section className="max-w-content mx-auto px-6">
           <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
             <dl className="space-y-6 font-mono text-sm text-white/70 h-fit md:sticky md:top-10">
@@ -110,74 +99,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Roster — a ledger, not a card grid, on the plain page canvas */}
+        {/* Fork — the actual job of this page: get someone to the
+            landing page written for them, rather than one generic pitch
+            trying to speak to both audiences at once. */}
         <section className="max-w-content mx-auto px-6 py-24">
           <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
-            One record. Built as the compliance requirements demanded it.
+            Which is this for?
           </h2>
           <ul className="border-t border-line">
-            {roster.map((m) => {
-              const Wrapper = m.href ? Link : 'div';
-              const wrapperProps = m.href ? { href: m.href } : {};
-              return (
-                <li key={m.name} className="border-b border-line">
-                  <Wrapper
-                    {...wrapperProps}
-                    className={`flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-8 py-7 ${
-                      m.href ? 'group hover:bg-paper-alt transition-colors -mx-6 px-6' : ''
-                    }`}
-                  >
-                    <span className="font-display text-2xl w-28 shrink-0">
-                      {m.name}
-                    </span>
-                    <span className="text-ink-soft flex-1 leading-relaxed">{m.desc}</span>
-                    <span
-                      className={`font-mono text-xs shrink-0 w-fit flex items-center gap-2 ${
-                        m.status === 'Live' ? 'text-teal' : 'text-gold'
-                      }`}
-                    >
-                      <span
-                        className={`inline-block w-1.5 h-1.5 rounded-full ${
-                          m.status === 'Live' ? 'bg-teal' : 'bg-gold'
-                        }`}
-                      />
-                      {m.status}
-                    </span>
-                  </Wrapper>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-
-        {/* CTA — same dark-panel treatment as the origin section, kept as
-            a contained card rather than a full-bleed band, matching how
-            the app itself always presents dark content: bounded, rounded,
-            never the whole viewport. */}
-        <section className="max-w-content mx-auto px-6 pb-24">
-          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[1fr_auto] gap-12 items-center">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
-                Meet every partner's compliance bar without rebuilding the
-                paperwork each time.
-              </h2>
-              <p className="mt-4 text-white/70 max-w-md">
-                See what Selko Cred actually does, then book 20 minutes to
-                walk through it against your own staff list.
-              </p>
-              <div className="mt-8">
+            {paths.map((p) => (
+              <li key={p.name} className="border-b border-line">
                 <Link
-                  href="/demo"
-                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
+                  href={p.href}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-8 py-7 group hover:bg-paper-alt transition-colors -mx-6 px-6"
                 >
-                  Explore Cred
+                  <span className="font-display text-2xl w-64 shrink-0">
+                    {p.name}
+                  </span>
+                  <span className="text-ink-soft flex-1 leading-relaxed">{p.desc}</span>
                 </Link>
-              </div>
-            </div>
-            <div className="hidden md:flex justify-center">
-              <Stamp label="Verified" size={128} color="#F8FAFC" />
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
       <Footer />
