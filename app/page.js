@@ -1,6 +1,5 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import Stamp from '@/components/Stamp';
 import Image from 'next/image';
 
 export const metadata = {
@@ -58,22 +57,19 @@ export default function DemoPage() {
     <>
       <Nav />
       <main>
-        {/* Hero */}
-        <section className="max-w-content mx-auto px-6 pt-20 pb-16 grid md:grid-cols-[1fr_auto] gap-16 items-center">
-          <div>
-            <h1 className="font-display text-5xl md:text-6xl leading-[1.05] text-balance max-w-2xl">
-              See what's actually built, not a pitch deck.
-            </h1>
-            <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-              Everything below is live in the product today, shown with real
-              screenshots rather than mockups. If it looks like something
-              that would save your office real time, book 20 minutes and
-              we'll walk through it on your own staff list.
-            </p>
-          </div>
-          <div className="hidden md:flex justify-center">
-            <Stamp label="Live" size={140} />
-          </div>
+        {/* Hero — no repeated Stamp icon here; this page's identity is
+            the real screenshots below, not a borrowed signature motif
+            from the other pages. */}
+        <section className="max-w-content mx-auto px-6 pt-20 pb-16">
+          <h1 className="font-display text-5xl md:text-6xl leading-[1.05] text-balance max-w-2xl">
+            See what's actually built, not a pitch deck.
+          </h1>
+          <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
+            Everything below is live in the product today, shown with real
+            screenshots rather than mockups. If it looks like something
+            that would save your office real time, book 20 minutes and
+            we'll walk through it on your own staff list.
+          </p>
         </section>
 
         {/* Feature list — ledger rows, matching the roster convention
@@ -125,33 +121,28 @@ export default function DemoPage() {
           </section>
         */}
 
-        {/* Booking CTA — same dark-panel/Stamp convention used on the
-            home and healthcare pages, not a standalone italic-heading
-            band with its own one-off style. */}
+        {/* Booking CTA — same dark-panel convention used site-wide, but
+            without the Stamp, so this page doesn't just repeat home's
+            signature move a second time. */}
         <section className="max-w-content mx-auto px-6 py-24">
-          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[1fr_auto] gap-12 items-center">
-            <div>
-              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
-                Book a walkthrough
-              </h2>
-              <p className="mt-4 text-white/70 max-w-md">
-                20 minutes, no slides — we'll show you Cred against a real
-                staff roster and answer whatever's actually holding your
-                credentialing process back.
-              </p>
-              <div className="mt-8">
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
-                >
-                  Book a demo
-                </a>
-              </div>
-            </div>
-            <div className="hidden md:flex justify-center">
-              <Stamp label="Verified" size={128} color="#F8FAFC" />
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14">
+            <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
+              Book a walkthrough
+            </h2>
+            <p className="mt-4 text-white/70 max-w-md">
+              20 minutes, no slides — we'll show you Cred against a real
+              staff roster and answer whatever's actually holding your
+              credentialing process back.
+            </p>
+            <div className="mt-8">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
+              >
+                Book a demo
+              </a>
             </div>
           </div>
         </section>
