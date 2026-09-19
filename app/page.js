@@ -45,7 +45,7 @@ export default function Home() {
             convention as the app itself uses for every section. */}
         <section className="max-w-content mx-auto px-6">
           <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
-            <dl className="space-y-6 font-mono text-sm text-white/70 h-fit md:sticky md:top-10">
+            <dl className="space-y-6 font-mono text-sm text-white/70 h-fit">
               <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-2">Why it exists</p>
               <div>
                 <dt>Built at</dt>
