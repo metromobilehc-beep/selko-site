@@ -54,6 +54,11 @@ const features = [
   {
     title: 'Payer credentialing form generation',
     desc: 'Upload a blank fillable payer enrollment PDF once, map its fields to staff and company data, and generate a filled form per provider going forward — no more retyping the same information into every payer\'s paperwork.',
+    screenshot: {
+      src: '/screenshots/payer-form.jpg',
+      alt: 'A real Texas Standardized Credentialing Application, auto-filled with practice location, tax ID, and credentialing contact information from Selko Cred',
+      caption: 'One click, pulled from data already on file — practice address, tax ID, credentialing contact, all filled in.',
+    },
   },
 ];
 
