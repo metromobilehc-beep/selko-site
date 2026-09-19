@@ -41,6 +41,11 @@ const features = [
   {
     title: 'OIG exclusion monitoring',
     desc: 'Staff are checked against the official OIG exclusion list, on demand or on an automated monthly schedule per company, with matches confidence-scored (NPI-confirmed vs. name-only) so a coincidental name match on a common name never reads as a real hit.',
+    screenshot: {
+      src: '/screenshots/oig-check.jpg',
+      alt: 'Selko Cred OIG Check Details modal, showing a full staff roster checked against the federal exclusion list with a clear result for each person',
+      caption: "A real check against every staff member — this run came back clean, which is the outcome you actually want to see.",
+    },
   },
   {
     title: 'NPI lookup & verification',
@@ -88,14 +93,19 @@ export default function DemoPage() {
                       <p className="text-ink-soft leading-relaxed">{f.desc}</p>
                     </div>
                     {f.screenshot ? (
-                      <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
-                        <Image
-                          src={f.screenshot.src}
-                          alt={f.screenshot.alt}
-                          width={1568}
-                          height={781}
-                          className="w-full h-auto block"
-                        />
+                      <div>
+                        <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
+                          <Image
+                            src={f.screenshot.src}
+                            alt={f.screenshot.alt}
+                            width={1568}
+                            height={781}
+                            className="w-full h-auto block"
+                          />
+                        </div>
+                        {f.screenshot.caption ? (
+                          <p className="mt-2 text-sm text-ink-soft">{f.screenshot.caption}</p>
+                        ) : null}
                       </div>
                     ) : null}
                   </div>
