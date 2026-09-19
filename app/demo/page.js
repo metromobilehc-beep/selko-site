@@ -19,7 +19,7 @@ const BOOKING_URL = 'https://calendar.app.google/p4K43ihvuULDPM4aA';
 // whole point of this page.
 const features = [
   {
-    title: 'License & credential tracking',
+    title: 'License & Credential tracking',
     desc: 'Every license, certification, and required document per staff member, with automatic expiring/expired status and a real-time compliance overview — not a spreadsheet someone has to remember to update.',
     screenshot: {
       src: '/screenshots/documents.jpg',
