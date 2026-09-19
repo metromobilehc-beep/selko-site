@@ -1,6 +1,6 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
+import Lightbox from '@/components/Lightbox';
 
 export const metadata = {
   title: 'See Selko Cred in Action',
@@ -100,12 +100,11 @@ export default function DemoPage() {
                     {f.screenshot ? (
                       <div>
                         <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
-                          <Image
+                          <Lightbox
                             src={f.screenshot.src}
                             alt={f.screenshot.alt}
                             width={1568}
                             height={781}
-                            className="w-full h-auto block"
                           />
                         </div>
                         {f.screenshot.caption ? (
