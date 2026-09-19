@@ -24,10 +24,16 @@ export default function HealthcarePage() {
     <>
       <Nav />
       <main>
-        {/* Hero */}
-        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-16 items-center">
+        {/* Hero — more confident typographic weight and a real depth
+            treatment (a floating credibility card over a team photo),
+            genuinely inspired by Juan's Certified Credentialing site,
+            but without borrowing its generic marketing-page tells: no
+            eyebrow pill, no arrow-suffixed button, no single-word
+            color-accent buried in the headline. The credibility card
+            states a real, verifiable fact instead of a slogan. */}
+        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1.05fr_1fr] gap-16 items-center">
           <div>
-            <h1 className="font-display text-5xl md:text-6xl leading-[1.08] text-balance max-w-2xl">
+            <h1 className="font-display text-5xl md:text-[3.4rem] leading-[1.05] text-balance max-w-2xl">
               Software your clinicians and your surveyor can both live with.
             </h1>
             <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
@@ -38,14 +44,33 @@ export default function HealthcarePage() {
               run on too, with one record per company and nothing shared
               between them.
             </p>
-            <div className="mt-9">
+            <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 href="/demo"
                 className="font-mono text-xs uppercase tracking-widest bg-ink text-paper rounded-full px-6 py-3 hover:bg-teal transition-colors inline-block"
               >
                 See Cred
               </Link>
+              <Link
+                href="#compliance"
+                className="font-mono text-xs uppercase tracking-widest border border-ink text-ink rounded-full px-6 py-3 hover:bg-ink hover:text-paper transition-colors inline-block"
+              >
+                Explore what it tracks
+              </Link>
             </div>
+            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2 max-w-lg">
+              {[
+                'License & Credential tracking',
+                'OIG exclusion monitoring',
+                'NPI & board verification',
+                'Payer credentialing forms',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm text-ink-soft">
+                  <span className="text-teal font-mono">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <p className="mt-6 text-sm text-ink-soft">
               Not in healthcare?{' '}
               <Link href="/other-industries" className="text-teal hover:underline">
@@ -54,14 +79,42 @@ export default function HealthcarePage() {
               .
             </p>
           </div>
-          <div className="hidden md:flex justify-center">
-            <Stamp label="Selko" size={172} />
+
+          <div className="relative">
+            {/* Drop a real photo of Metro's own team in at
+                /public/team-photo.jpg (1200x900 or similar) — using an
+                actual photo of the people this was built for/by, rather
+                than stock photography of clinicians who've never used
+                it, since that's the more honest choice given the whole
+                origin story this page tells. */}
+            <div className="rounded-[10px] overflow-hidden shadow-lg aspect-[4/3] bg-paper-alt">
+              <Image
+                src="/team-photo.jpg"
+                alt="The Metro Mobile Health Care team"
+                width={1200}
+                height={900}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-[10px] shadow-lg p-5 max-w-xs border border-line">
+              <div className="flex items-start gap-3">
+                <Stamp label="Selko" size={44} />
+                <div>
+                  <p className="font-display text-base leading-snug">
+                    Built at Metro Mobile Health Care
+                  </p>
+                  <p className="text-xs text-ink-soft mt-1">
+                    A real mobile outpatient therapy staffing company in Tulsa, OK — not a concept.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Why it exists — condensed for a page someone may land on
             directly from search, without the full home-page origin story */}
-        <section className="max-w-content mx-auto px-6">
+        <section id="compliance" className="max-w-content mx-auto px-6 pt-8">
           <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14">
             <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-4">Why it exists</p>
             <h2 className="font-display text-3xl leading-tight text-balance mb-6 text-white max-w-2xl">
