@@ -1,126 +1,283 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Stamp from '@/components/Stamp';
+import Image from 'next/image';
 import Link from 'next/link';
 
-const paths = [
+export const metadata = {
+  title: 'Selko Cred — Credentialing Software for Home Health & Outpatient Therapy',
+  description:
+    'Selko Cred is credential tracking and verification software built inside a real mobile outpatient therapy staffing company. License tracking, document verification, OIG exclusion monitoring, and payer credentialing forms.',
+};
+
+const roster = [
   {
-    name: 'Healthcare & Therapy Staffing',
-    desc: 'Selko Cred, built for home health and outpatient therapy — license tracking, OIG exclusion monitoring, and payer credentialing forms.',
-    href: '/healthcare',
-  },
-  {
-    name: 'Other Regulated Industries',
-    desc: 'The same tracking and verification engine, for any business that lives or dies by keeping licenses, certifications, and filings current.',
-    href: '/other-industries',
+    name: 'Cred',
+    desc: 'License and credential tracking, document verification, OIG exclusion monitoring, and payer credentialing forms.',
+    status: 'Live',
+    href: '/demo',
   },
 ];
 
-export default function Home() {
+export default function HealthcarePage() {
   return (
     <>
       <Nav />
       <main>
-        {/* Hero */}
-        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-16 items-center">
+        {/* Hero — more confident typographic weight and a real depth
+            treatment (a floating credibility card over a team photo),
+            genuinely inspired by Juan's Certified Credentialing site,
+            but without borrowing its generic marketing-page tells: no
+            eyebrow pill, no arrow-suffixed button, no single-word
+            color-accent buried in the headline. The credibility card
+            states a real, verifiable fact instead of a slogan. */}
+        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1.05fr_1fr] gap-16 items-center">
           <div>
-            <h1 className="font-display text-5xl md:text-6xl leading-[1.08] text-balance max-w-2xl">
-              Software your team and your regulators can both live with.
+            <h1 className="font-display text-5xl md:text-[3.4rem] leading-[1.05] text-balance max-w-2xl">
+              Software your clinicians and your surveyor can both live with.
             </h1>
             <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-              Selko started inside a real healthcare staffing company
-              solving its own compliance problem. It's now a platform for
-              any regulated business that lives or dies by keeping
-              paperwork current, with one record per company and nothing
-              shared between them.
+              Selko started as internal tools for a mobile outpatient therapy
+              staffing company in Tulsa — built to clear the compliance and
+              credentialing bar our partner agencies actually set, not just
+              keep our own records tidy. It's now a platform other agencies
+              run on too, with one record per company and nothing shared
+              between them.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/demo"
+                className="font-mono text-xs uppercase tracking-widest bg-ink text-paper rounded-full px-6 py-3 hover:bg-teal transition-colors inline-block"
+              >
+                See Cred
+              </Link>
+              <Link
+                href="#compliance"
+                className="font-mono text-xs uppercase tracking-widest border border-ink text-ink rounded-full px-6 py-3 hover:bg-ink hover:text-paper transition-colors inline-block"
+              >
+                Explore what it tracks
+              </Link>
+            </div>
+            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2 max-w-lg">
+              {[
+                'License & credential tracking',
+                'OIG exclusion monitoring',
+                'NPI & board verification',
+                'Payer credentialing forms',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm text-ink-soft">
+                  <span className="text-teal font-mono">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-sm text-ink-soft">
+              Not in healthcare?{' '}
+              <Link href="/other-industries" className="text-teal hover:underline">
+                See how Selko works for other regulated industries
+              </Link>
+              .
             </p>
           </div>
-          <div className="hidden md:flex justify-center">
-            <Stamp label="Selko" size={172} />
-          </div>
-        </section>
 
-        {/* Origin — the full story lives here once; the vertical pages
-            link back to it rather than repeating it. Same dark-panel
-            convention as the app itself uses for every section. */}
-        <section className="max-w-content mx-auto px-6">
-          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
-            <dl className="space-y-6 font-mono text-sm text-white/70 h-fit md:sticky md:top-10">
-              <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-2">Why it exists</p>
-              <div>
-                <dt>Built at</dt>
-                <dd className="mt-1 text-white">Metro Mobile Health Care</dd>
-              </div>
-              <div>
-                <dt>Where</dt>
-                <dd className="mt-1 text-white">Tulsa, Oklahoma</dd>
-              </div>
-              <div>
-                <dt>What Metro does</dt>
-                <dd className="mt-1 text-white">Mobile outpatient PT/OT staffing</dd>
-              </div>
-            </dl>
-            <div>
-              <h2 className="font-display text-3xl leading-tight text-balance mb-6 text-white">
-                We built the tool we couldn't find, then kept building it
-                for the agencies asking about it.
-              </h2>
-              <div className="text-white/70 space-y-4 max-w-2xl leading-relaxed">
-                <p>
-                  Metro places physical and occupational therapists with
-                  partner agencies across Oklahoma, and every partner has its
-                  own compliance and credentialing bar to clear before a
-                  clinician can start seeing patients. Clearing it by
-                  spreadsheet meant re-checking license renewals by hand, one
-                  clinician at a time, and hoping nothing quietly went stale
-                  in between.
-                </p>
-                <p>
-                  Selko Cred started as the fix for that at Metro, first —
-                  nothing about it was built to be sold, just to stop that
-                  paperwork from slipping.
-                </p>
-                <p>
-                  Other agencies started asking to use it. Selko is that
-                  platform now: multi-tenant, isolated by company, and
-                  shaped by the actual paperwork of running a therapy
-                  staffing business, rather than generic practice-management
-                  software repurposed for the field.
-                </p>
-                <p>
-                  What it turned out to track — who's credentialed,
-                  verified, and current — was never really specific to
-                  healthcare. Built for that first, the same engine adapts
-                  to any regulated industry that lives or dies by keeping
-                  paperwork current.
-                </p>
+          <div className="relative">
+            {/* Drop a real photo of Metro's own team in at
+                /public/team-photo.jpg (1200x900 or similar) — using an
+                actual photo of the people this was built for/by, rather
+                than stock photography of clinicians who've never used
+                it, since that's the more honest choice given the whole
+                origin story this page tells. */}
+            <div className="rounded-[10px] overflow-hidden shadow-lg aspect-[4/3] bg-paper-alt">
+              <Image
+                src="/team-photo.jpg"
+                alt="The Metro Mobile Health Care team"
+                width={1200}
+                height={900}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-[10px] shadow-lg p-5 max-w-xs border border-line">
+              <div className="flex items-start gap-3">
+                <Stamp label="Selko" size={44} />
+                <div>
+                  <p className="font-display text-base leading-snug">
+                    Built at Metro Mobile Health Care
+                  </p>
+                  <p className="text-xs text-ink-soft mt-1">
+                    A real mobile outpatient therapy staffing company in Tulsa, OK — not a concept.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Fork — the actual job of this page: get someone to the
-            landing page written for them, rather than one generic pitch
-            trying to speak to both audiences at once. */}
+        {/* Why it exists — condensed for a page someone may land on
+            directly from search, without the full home-page origin story */}
+        <section id="compliance" className="max-w-content mx-auto px-6 pt-8">
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14">
+            <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-4">Why it exists</p>
+            <h2 className="font-display text-3xl leading-tight text-balance mb-6 text-white max-w-2xl">
+              Metro places physical and occupational therapists with partner
+              agencies across Oklahoma — and every partner has its own
+              compliance bar to clear first.
+            </h2>
+            <p className="text-white/70 max-w-2xl leading-relaxed">
+              Clearing it by spreadsheet meant re-checking license renewals
+              by hand, one clinician at a time. Selko Cred started as the fix
+              for that at Metro, first — nothing about it was built to be
+              sold, just to stop paperwork from quietly going stale. Other
+              agencies started asking to use it, and Selko is that platform
+              now: multi-tenant, isolated by company, shaped by the actual
+              paperwork of running a therapy staffing business.
+            </p>
+          </div>
+        </section>
+
+        {/* Real product screenshot — a fictional demo company, not a
+            mockup, so what you see here is exactly what's in the app. */}
+        <section className="max-w-content mx-auto px-6 py-16">
+          <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
+            <Image
+              src="/screenshots/documents.jpg"
+              alt="Selko Cred's document tracking table, showing license status, verification, and expiration dates for a staff roster"
+              width={1568}
+              height={781}
+              className="w-full h-auto block"
+            />
+          </div>
+          <p className="mt-3 text-sm text-ink-soft">
+            Every license and document, one table — current, expiring, or
+            expired, with who verified it and when.
+          </p>
+        </section>
+
+        {/* Roster */}
         <section className="max-w-content mx-auto px-6 py-24">
           <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
-            Which is this for?
+            One record. Built as the compliance requirements demanded it.
           </h2>
           <ul className="border-t border-line">
-            {paths.map((p) => (
-              <li key={p.name} className="border-b border-line">
+            {roster.map((m) => (
+              <li key={m.name} className="border-b border-line">
                 <Link
-                  href={p.href}
+                  href={m.href}
                   className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-8 py-7 group hover:bg-paper-alt transition-colors -mx-6 px-6"
                 >
-                  <span className="font-display text-2xl w-64 shrink-0">
-                    {p.name}
+                  <span className="font-display text-2xl w-28 shrink-0">
+                    {m.name}
                   </span>
-                  <span className="text-ink-soft flex-1 leading-relaxed">{p.desc}</span>
+                  <span className="text-ink-soft flex-1 leading-relaxed">{m.desc}</span>
+                  <span className="font-mono text-xs shrink-0 w-fit flex items-center gap-2 text-teal">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-teal" />
+                    {m.status}
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Plans — real feature/tier data pulled directly from the app's
+            own billing settings, not marketing copy invented for this
+            page. Two independent add-ons (document tracking and
+            credentialing) that combine with a bundle discount. */}
+        <section className="max-w-content mx-auto px-6 pb-24">
+          <h2 className="font-display text-3xl mb-3 text-balance max-w-xl">
+            Two add-ons, priced separately, discounted together.
+          </h2>
+          <p className="text-ink-soft mb-10 max-w-2xl leading-relaxed">
+            Document tracking and credentialing are billed independently, so
+            you only pay for what you actually need — plus a 10% discount,
+            forever, if you use both.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            <div>
+              <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Document tracking</h3>
+              <p className="font-display text-2xl mb-4">Standard $45/mo &nbsp;·&nbsp; Pro $79/mo</p>
+              <table className="w-full text-sm border-t border-line">
+                <tbody>
+                  {[
+                    ['Upload, verify, track staff documents', true, true],
+                    ['Overview stats, Expiration Tracker', true, true],
+                    ['Create custom document types', false, true],
+                    ['Duplicate a shared default type to customize it', false, true],
+                    ['Access to Pro-only document types', false, true],
+                    ['Detailed Missing Docs report (filterable, per-staff)', false, true],
+                    ['Bulk download all staff files', false, true],
+                    ['Export compliance report (Excel / PDF)', false, true],
+                    ['Custom branding (logo, colors)', false, true],
+                  ].map(([feature, std, pro]) => (
+                    <tr key={feature} className="border-b border-line">
+                      <td className="py-3 pr-4 text-ink-soft">{feature}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{std ? <span className="text-teal">✓</span> : '—'}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{pro ? <span className="text-teal">✓</span> : '—'}</td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td></td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Std</td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Pro</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+              <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Credentialing</h3>
+              <p className="font-display text-2xl mb-4">Basic $59/mo &nbsp;·&nbsp; Full $129/mo</p>
+              <table className="w-full text-sm border-t border-line">
+                <tbody>
+                  {[
+                    ['Org profile, staff records, CAQH/DEA, Notes, Locations, Accreditations, Employment History', true, true],
+                    ['Credentialing Files — admin upload and viewing', true, true],
+                    ['One-click payer form generation (upload a blank PDF once, fill for any provider)', false, true],
+                    ['Import a blank form directly from a URL', false, true],
+                    ['Clinician self-service file upload (their own "My Credentials" page)', false, true],
+                  ].map(([feature, basic, full]) => (
+                    <tr key={feature} className="border-b border-line">
+                      <td className="py-3 pr-4 text-ink-soft">{feature}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{basic ? <span className="text-teal">✓</span> : '—'}</td>
+                      <td className="py-3 text-center w-16 font-mono text-xs">{full ? <span className="text-teal">✓</span> : '—'}</td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td></td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Basic</td>
+                    <td className="pt-2 text-center font-mono text-xs text-ink-soft">Full</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="max-w-content mx-auto px-6 pb-24">
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[1fr_auto] gap-12 items-center">
+            <div>
+              <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
+                Meet every partner's compliance bar without rebuilding the
+                paperwork each time.
+              </h2>
+              <p className="mt-4 text-white/70 max-w-md">
+                See what Selko Cred actually does, then book 20 minutes to
+                walk through it against your own staff list.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/demo"
+                  className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
+                >
+                  Explore Cred
+                </Link>
+              </div>
+            </div>
+            <div className="hidden md:flex justify-center">
+              <Stamp label="Verified" size={128} color="#F8FAFC" />
+            </div>
+          </div>
         </section>
       </main>
       <Footer />
