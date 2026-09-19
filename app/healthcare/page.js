@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Stamp from '@/components/Stamp';
+import Lightbox from '@/components/Lightbox';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -135,15 +136,15 @@ export default function HealthcarePage() {
         </section>
 
         {/* Real product screenshot — a fictional demo company, not a
-            mockup, so what you see here is exactly what's in the app. */}
+            mockup, so what you see here is exactly what's in the app.
+            Click-to-enlarge since it's a dense data table. */}
         <section className="max-w-content mx-auto px-6 py-16">
           <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
-            <Image
+            <Lightbox
               src="/screenshots/documents.jpg"
               alt="Selko Cred's document tracking table, showing license status, verification, and expiration dates for a staff roster"
               width={1568}
               height={781}
-              className="w-full h-auto block"
             />
           </div>
           <p className="mt-3 text-sm text-ink-soft">
