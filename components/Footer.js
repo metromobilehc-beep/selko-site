@@ -30,8 +30,8 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>Tulsa, Oklahoma</li>
             <li>
-              <a href="mailto:hello@selko360.com" className="hover:text-gold">
-                hello@selko360.com
+              <a href="mailto:info@selko360.com" className="hover:text-gold">
+                info@selko360.com
               </a>
             </li>
           </ul>
