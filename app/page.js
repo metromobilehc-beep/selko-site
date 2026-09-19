@@ -1,150 +1,126 @@
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
-import Image from 'next/image';
+import Stamp from '@/components/Stamp';
+import Link from 'next/link';
 
-export const metadata = {
-  title: 'See Selko Cred in Action',
-  description:
-    'A look at what Selko Cred actually does — license and credential tracking, document verification, OIG exclusion monitoring, and payer form generation — plus how to book time to talk through it.',
-};
-
-// Real Google Calendar booking link for Selko Cred demo calls.
-const BOOKING_URL = 'https://calendar.app.google/p4K43ihvuULDPM4aA';
-
-// Real, currently-built Cred features — keep this in sync with what's
-// actually shipped rather than the roadmap. Each one should be
-// something a prospect could see live in a demo call, not aspirational.
-// A screenshot is attached where one exists; the rest stay text-only
-// rather than faked, since a placeholder image would undercut the
-// whole point of this page.
-const features = [
+const paths = [
   {
-    title: 'License & credential tracking',
-    desc: 'Every license, certification, and required document per staff member, with automatic expiring/expired status and a real-time compliance overview — not a spreadsheet someone has to remember to update.',
-    screenshot: {
-      src: '/screenshots/documents.jpg',
-      alt: "Selko Cred's document tracking table, showing license status, verification, and expiration dates for a staff roster",
-    },
+    name: 'Healthcare & Therapy Staffing',
+    desc: 'Selko Cred, built for home health and outpatient therapy — license tracking, OIG exclusion monitoring, and payer credentialing forms.',
+    href: '/healthcare',
   },
   {
-    title: 'Document verification',
-    desc: 'Admins upload and verify documents directly, with an OCR-assisted scan step and a permanent audit trail of who verified what and when.',
-  },
-  {
-    title: 'Missing documents report',
-    desc: 'A dedicated view of exactly who is missing which required or optional document — not just who has something unverified — sortable and exportable as a PDF.',
-    screenshot: {
-      src: '/screenshots/overview.jpg',
-      alt: 'Selko Cred overview dashboard showing credentialing stats and a needs-attention list of missing items per staff member',
-    },
-  },
-  {
-    title: 'OIG exclusion monitoring',
-    desc: 'Staff are checked against the official OIG exclusion list, on demand or on an automated monthly schedule per company, with matches confidence-scored (NPI-confirmed vs. name-only) so a coincidental name match on a common name never reads as a real hit.',
-  },
-  {
-    title: 'NPI lookup & verification',
-    desc: 'Look up and verify individual NPIs directly against the public NPPES registry from inside a staff record.',
-  },
-  {
-    title: 'Payer credentialing form generation',
-    desc: 'Upload a blank fillable payer enrollment PDF once, map its fields to staff and company data, and generate a filled form per provider going forward — no more retyping the same information into every payer\'s paperwork.',
+    name: 'Other Regulated Industries',
+    desc: 'The same tracking and verification engine, for any business that lives or dies by keeping licenses, certifications, and filings current.',
+    href: '/other-industries',
   },
 ];
 
-export default function DemoPage() {
+export default function Home() {
   return (
     <>
       <Nav />
       <main>
-        {/* Hero — no repeated Stamp icon here; this page's identity is
-            the real screenshots below, not a borrowed signature motif
-            from the other pages. */}
-        <section className="max-w-content mx-auto px-6 pt-20 pb-16">
-          <h1 className="font-display text-5xl md:text-6xl leading-[1.05] text-balance max-w-2xl">
-            See what's actually built, not a pitch deck.
-          </h1>
-          <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
-            Everything below is live in the product today, shown with real
-            screenshots rather than mockups. If it looks like something
-            that would save your office real time, book 20 minutes and
-            we'll walk through it on your own staff list.
-          </p>
-        </section>
-
-        {/* Feature list — ledger rows, matching the roster convention
-            used on the healthcare/other-industries pages, with a real
-            screenshot attached wherever one exists. */}
-        <section className="bg-paper-alt border-y border-line">
-          <div className="max-w-content mx-auto px-6 py-20">
-            <ul className="border-t border-line">
-              {features.map((f) => (
-                <li key={f.title} className="border-b border-line py-10 first:pt-0">
-                  <div className={f.screenshot ? 'grid md:grid-cols-[1fr_1.3fr] gap-10 items-center' : ''}>
-                    <div>
-                      <h2 className="font-display text-2xl mb-2 text-balance">
-                        {f.title}
-                      </h2>
-                      <p className="text-ink-soft leading-relaxed">{f.desc}</p>
-                    </div>
-                    {f.screenshot ? (
-                      <div className="rounded-[10px] overflow-hidden border border-line shadow-sm">
-                        <Image
-                          src={f.screenshot.src}
-                          alt={f.screenshot.alt}
-                          width={1568}
-                          height={781}
-                          className="w-full h-auto block"
-                        />
-                      </div>
-                    ) : null}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/*
-          Video walkthrough slot — intentionally left out until a real
-          video exists. Drop an embed back in here later, e.g.:
-
-          <section className="max-w-content mx-auto px-6 py-20">
-            <div className="aspect-video w-full rounded-lg overflow-hidden border border-line">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="Selko Cred walkthrough"
-                allowFullScreen
-              />
-            </div>
-          </section>
-        */}
-
-        {/* Booking CTA — same dark-panel convention used site-wide, but
-            without the Stamp, so this page doesn't just repeat home's
-            signature move a second time. */}
-        <section className="max-w-content mx-auto px-6 py-24">
-          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14">
-            <h2 className="font-display text-3xl md:text-4xl leading-tight text-balance max-w-lg text-white">
-              Book a walkthrough
-            </h2>
-            <p className="mt-4 text-white/70 max-w-md">
-              20 minutes, no slides — we'll show you Cred against a real
-              staff roster and answer whatever's actually holding your
-              credentialing process back.
+        {/* Hero */}
+        <section className="max-w-content mx-auto px-6 pt-20 pb-24 grid md:grid-cols-[1fr_auto] gap-16 items-center">
+          <div>
+            <h1 className="font-display text-5xl md:text-6xl leading-[1.08] text-balance max-w-2xl">
+              Software your team and your regulators can both live with.
+            </h1>
+            <p className="mt-6 text-lg text-ink-soft max-w-xl leading-relaxed">
+              Selko started inside a real healthcare staffing company
+              solving its own compliance problem. It's now a platform for
+              any regulated business that lives or dies by keeping
+              paperwork current, with one record per company and nothing
+              shared between them.
             </p>
-            <div className="mt-8">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs uppercase tracking-widest bg-gold text-ink rounded-full px-6 py-3 hover:bg-teal-l hover:text-ink transition-colors inline-block"
-              >
-                Book a demo
-              </a>
+          </div>
+          <div className="hidden md:flex justify-center">
+            <Stamp label="Selko" size={172} />
+          </div>
+        </section>
+
+        {/* Origin — the full story lives here once; the vertical pages
+            link back to it rather than repeating it. Same dark-panel
+            convention as the app itself uses for every section. */}
+        <section className="max-w-content mx-auto px-6">
+          <div className="bg-ink rounded-[10px] px-8 py-10 md:px-12 md:py-14 grid md:grid-cols-[220px_1fr] gap-10 md:gap-16">
+            <dl className="space-y-6 font-mono text-sm text-white/70 h-fit md:sticky md:top-10">
+              <p className="text-teal-l text-xs uppercase tracking-[.05em] font-semibold mb-2">Why it exists</p>
+              <div>
+                <dt>Built at</dt>
+                <dd className="mt-1 text-white">Metro Mobile Health Care</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd className="mt-1 text-white">Tulsa, Oklahoma</dd>
+              </div>
+              <div>
+                <dt>What Metro does</dt>
+                <dd className="mt-1 text-white">Mobile outpatient PT/OT staffing</dd>
+              </div>
+            </dl>
+            <div>
+              <h2 className="font-display text-3xl leading-tight text-balance mb-6 text-white">
+                We built the tool we couldn't find, then kept building it
+                for the agencies asking about it.
+              </h2>
+              <div className="text-white/70 space-y-4 max-w-2xl leading-relaxed">
+                <p>
+                  Metro places physical and occupational therapists with
+                  partner agencies across Oklahoma, and every partner has its
+                  own compliance and credentialing bar to clear before a
+                  clinician can start seeing patients. Clearing it by
+                  spreadsheet meant re-checking license renewals by hand, one
+                  clinician at a time, and hoping nothing quietly went stale
+                  in between.
+                </p>
+                <p>
+                  Selko Cred started as the fix for that at Metro, first —
+                  nothing about it was built to be sold, just to stop that
+                  paperwork from slipping.
+                </p>
+                <p>
+                  Other agencies started asking to use it. Selko is that
+                  platform now: multi-tenant, isolated by company, and
+                  shaped by the actual paperwork of running a therapy
+                  staffing business, rather than generic practice-management
+                  software repurposed for the field.
+                </p>
+                <p>
+                  What it turned out to track — who's credentialed,
+                  verified, and current — was never really specific to
+                  healthcare. Built for that first, the same engine adapts
+                  to any regulated industry that lives or dies by keeping
+                  paperwork current.
+                </p>
+              </div>
             </div>
           </div>
+        </section>
+
+        {/* Fork — the actual job of this page: get someone to the
+            landing page written for them, rather than one generic pitch
+            trying to speak to both audiences at once. */}
+        <section className="max-w-content mx-auto px-6 py-24">
+          <h2 className="font-display text-3xl mb-10 text-balance max-w-xl">
+            Which is this for?
+          </h2>
+          <ul className="border-t border-line">
+            {paths.map((p) => (
+              <li key={p.name} className="border-b border-line">
+                <Link
+                  href={p.href}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-8 py-7 group hover:bg-paper-alt transition-colors -mx-6 px-6"
+                >
+                  <span className="font-display text-2xl w-64 shrink-0">
+                    {p.name}
+                  </span>
+                  <span className="text-ink-soft flex-1 leading-relaxed">{p.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       </main>
       <Footer />
