@@ -81,7 +81,7 @@ export default function HealthcarePage() {
             </p>
           </div>
 
-          <div className="relative">
+          <div>
             {/* Drop a real photo of Metro's own team in at
                 /public/team-photo.jpg (1200x900 or similar) — using an
                 actual photo of the people this was built for/by, rather
@@ -97,7 +97,11 @@ export default function HealthcarePage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-[10px] shadow-lg p-5 max-w-xs border border-line">
+            {/* Sits below the photo rather than overlapping a corner —
+                with two named founders side by side in the photo now,
+                an overlapping card ends up covering one of their faces
+                no matter which corner it's pinned to. */}
+            <div className="mt-6 bg-white rounded-[10px] shadow-lg p-5 max-w-xs border border-line">
               <div className="flex items-start gap-3">
                 <Stamp label="Selko" size={44} />
                 <div>
