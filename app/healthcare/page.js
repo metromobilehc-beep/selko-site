@@ -183,49 +183,45 @@ export default function HealthcarePage() {
           </ul>
         </section>
 
-        {/* Plans — real feature/tier data pulled directly from the
-            app's own billing settings. Credentialing now includes
-            document tracking automatically, at the matching tier
-            level; standalone document tracking still exists for
-            companies that only need that. */}
+        {/* Plans — Document Tracking is the required foundation, with a
+            Standard/Pro feature split; Credentialing and HR Onboarding are
+            each single-tier add-ons on top of it — buy them, get every
+            feature, no further split within them. */}
         <section className="max-w-content mx-auto px-6 pb-24">
           <h2 className="font-display text-3xl mb-3 text-balance max-w-xl">
-            Credentialing includes document tracking. No add-on required.
+            One foundation, add what you need.
           </h2>
           <p className="text-ink-soft mb-10 max-w-2xl leading-relaxed">
-            Every Credentialing plan comes with full document tracking at
-            the matching level — Basic includes Standard document
-            tracking, Pro includes Pro. Just need document tracking on
-            its own, without the rest of Credentialing? That's still
-            available separately below.
+            Document Tracking is the required foundation. Credentialing and
+            HR Onboarding are add-ons on top of it — each a single price,
+            every feature included once you have it. <strong className="text-ink">20% off everything</strong> when
+            you use all three together.
           </p>
 
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Credentialing</h3>
-            <p className="font-display text-2xl mb-4">Basic $99/mo &nbsp;·&nbsp; Pro $129/mo</p>
+            <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">Document Tracking (required foundation)</h3>
+            <p className="font-display text-2xl mb-4">Standard $49/mo &nbsp;·&nbsp; Pro $99/mo</p>
             <table className="w-full text-sm border-t border-line max-w-2xl">
               <tbody>
                 {[
-                  ['Org profile, staff records, CAQH/DEA, Notes, Locations, Accreditations, Employment History', true, true],
-                  ['Credentialing Files — admin upload and viewing', true, true],
-                  ['Upload, verify, track staff documents (included, matching level)', true, true],
+                  ['Upload, verify, track staff documents', true, true],
                   ['Overview stats, Expiration Tracker', true, true],
-                  ['One-click payer form generation (upload a blank PDF once, fill for any provider)', false, true],
-                  ['Import a blank form directly from a URL', false, true],
-                  ['Clinician self-service file upload (their own "My Credentials" page)', false, true],
-                  ['Detailed Missing Docs report (filterable, per-staff)', false, true],
-                  ['Bulk download all staff files, export compliance report', false, true],
-                  ['Custom branding (logo, colors)', false, true],
-                ].map(([feature, basic, pro]) => (
+                  ['Automated staff/admin expiry reminders (30-day, 7-day, expired-weekly)', true, true],
+                  ['Custom reminders (any message, any staff member, repeating)', true, true],
+                  ['Pro-tier pre-built document types', false, true],
+                  ['Customize or duplicate a built-in document type', false, true],
+                  ['Agency/Partner Portal access', false, true],
+                  ['Detailed Missing Docs report, bulk download, custom branding', false, true],
+                ].map(([feature, std, pro]) => (
                   <tr key={feature} className="border-b border-line">
                     <td className="py-3 pr-4 text-ink-soft">{feature}</td>
-                    <td className="py-3 text-center w-16 font-mono text-xs">{basic ? <span className="text-teal">✓</span> : '—'}</td>
+                    <td className="py-3 text-center w-16 font-mono text-xs">{std ? <span className="text-teal">✓</span> : '—'}</td>
                     <td className="py-3 text-center w-16 font-mono text-xs">{pro ? <span className="text-teal">✓</span> : '—'}</td>
                   </tr>
                 ))}
                 <tr>
                   <td></td>
-                  <td className="pt-2 text-center font-mono text-xs text-ink-soft">Basic</td>
+                  <td className="pt-2 text-center font-mono text-xs text-ink-soft">Std</td>
                   <td className="pt-2 text-center font-mono text-xs text-ink-soft">Pro</td>
                 </tr>
               </tbody>
@@ -233,14 +229,39 @@ export default function HealthcarePage() {
           </div>
 
           <div className="mt-14 pt-10 border-t border-line max-w-2xl">
-            <h3 className="font-mono text-xs uppercase tracking-[.05em] text-ink-soft mb-1">Document tracking only</h3>
+            <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">+ Credentialing add-on</h3>
+            <p className="font-display text-2xl mb-4">+$49/mo</p>
+            <p className="text-ink-soft leading-relaxed mb-3">
+              Everything below is included once you add Credentialing — no further tiers to pick between.
+            </p>
+            <ul className="text-sm text-ink-soft space-y-2 list-disc pl-5">
+              <li>Organization profile — Tax ID, NPI, accreditations (ACHC, CHAP, Joint Commission)</li>
+              <li>Per-provider CAQH ID, DEA number, board certification</li>
+              <li>License & NPI lookup/verification against public registries</li>
+              <li>Full CAQH-required data: education, employment history, hospital privileges, malpractice claims</li>
+              <li>Professional references, with actual verification tracking — not just contact info</li>
+              <li>OIG federal exclusion-list screening, NPI + name-matched with confidence scoring</li>
+              <li>Upload a payer's blank form once, map fields, auto-generate filled copies per provider</li>
+              <li>Clinician self-service document upload</li>
+            </ul>
+          </div>
+
+          <div className="mt-14 pt-10 border-t border-line max-w-2xl">
+            <h3 className="font-mono text-xs uppercase tracking-[.05em] text-teal mb-1">+ HR Onboarding add-on</h3>
+            <p className="font-display text-2xl mb-4">+$49/mo</p>
+            <ul className="text-sm text-ink-soft space-y-2 list-disc pl-5">
+              <li>I-9, W-4, background check authorization, custom company policy documents</li>
+              <li>Segregated storage (I-9 compliance requirement)</li>
+              <li>Staff self-service onboarding portal — new hire fills their own Section 1, agency completes the rest</li>
+              <li>Encrypted SSN storage, same audit pattern as Credentialing</li>
+            </ul>
+          </div>
+
+          <div className="mt-14 pt-10 border-t border-line max-w-2xl">
             <p className="text-ink-soft leading-relaxed">
-              Don't need the credentialing side — CAQH, payer forms,
-              hospital privileges? Document tracking is available on its
-              own: <strong className="text-ink">Standard $45/mo</strong>,{' '}
-              <strong className="text-ink">Pro $79/mo</strong> (custom
-              document types, detailed reporting, bulk export, custom
-              branding).
+              <strong className="text-ink">Real-world example:</strong> a 15-person
+              clinic on Standard + Credentialing pays about <strong className="text-ink">$98/mo combined</strong> —
+              roughly $6.50 per provider, per month.
             </p>
           </div>
         </section>
